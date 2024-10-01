@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <!-- Aqui o link para o 
+     CSS já conhecido...-->
+</head>
+<body>
+    <div class="container result-container"><!-- Aqui um 
+        conteiner para os resultados 
+        CSS já conhecido...-->
+        <h1>Resultado Final</h1>
+        <div class="result-details">
+            <p id="name"></p> <!-- nome no resultado-->
+            <p id="average"></p><!-- média no resultado-->
+            <p id="status" class="status"></p><!-- e o status, 
+               seja aprovado ou reprovado-->
+        </div>
+        <a href="index.html" class="back-link">Voltar</a>
+    </div>
+
+    <script>
+        // Recebe os dados do localStorage, espaço que guarda os valores recebidos.
+        const name = localStorage.getItem('studentName');
+        const average = parseFloat(localStorage.getItem('average'));
+        // Recebe o resultado de a media, para ver se está
+        // aprovado ou reprovado... ixi reprovou dançou..rs
+        const status = average >= 6 ? 'Aprovado' : 'Reprovado';
+        const statusClass = average >= 6 ? 'approved' : 'failed';
+        // Exibe os resultados no formulario...]
+        document.getElementById('name').innerText = `Nome: ${name}`;
+        document.getElementById('average').innerText = `Média: ${average.toFixed(2)}`;
+        document.getElementById('status').innerText = `Status: ${status}`;
+        document.getElementById('status').classList.add(statusClass);
+    </script>
+</body>
+</html>
+
+
